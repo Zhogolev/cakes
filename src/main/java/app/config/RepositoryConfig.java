@@ -1,6 +1,7 @@
 package app.config;
 
 import app.entity.Cake;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -41,9 +42,10 @@ public class RepositoryConfig {
     public DataSource getDataSource() {
         DriverManagerDataSource  dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/dom.ru");
-        dataSource.setUsername("postgres");
+        dataSource.setDriverClassName(env.getProperty("db.driver"));
+        dataSource.setUrl(env.getProperty("db.url"));
+        dataSource.setUsername(env.getProperty("db.user"));
+        dataSource.setPassword(env.getProperty("db.pass"));
 
         return dataSource;
     }
@@ -53,13 +55,16 @@ public class RepositoryConfig {
         Properties props = new Properties();
 
         props.setProperty("hibernate.show_sql", "false");
-        props.setProperty("hibernate.hbm2ddl.auto", "validate");
+        props.setProperty("hibernate.hbm2ddl.auto", "update");
         props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         props.setProperty("hibernate.c3p0.min_size","10");
         props.setProperty("hibernate.c3p0.max_size","100");
         props.setProperty("hibernate.c3p0.acquire_increment","1");
         props.setProperty("hibernate.c3p0.timeout","2000");
         props.setProperty("hibernate.c3p0.max_statements","150");
+        props.setProperty("javax.persistence.schema-generation.database.action",env.getProperty("data.action"));
+
+
         return props;
     }
 
