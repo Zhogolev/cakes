@@ -6,8 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.*;
@@ -19,11 +17,10 @@ import java.util.concurrent.CompletableFuture;
 /**
  * Implementation of {@Link app.repository.CakeRepository} interface
  */
-@Repository
+
 public class CakeRepositoryImpl implements CakeRepository {
 
     @Autowired
-    @Qualifier("sessionFactory")
     SessionFactory sessionFactory;
 
     @Override

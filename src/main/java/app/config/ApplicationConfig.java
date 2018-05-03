@@ -1,9 +1,7 @@
 package app.config;
 
 
-import app.repository.CakeRepository;
 import app.repository.CakeRepositoryImpl;
-import app.service.CakeService;
 import app.service.CakeServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,12 +10,12 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
 
     @Bean(name = "cakeRepository")
-    public CakeRepository getCakeRepository() {
+    public CakeRepositoryImpl getCakeRepository() {
         return new CakeRepositoryImpl();
     }
 
     @Bean(name = "cakeService")
-    public CakeService getCakeService() {
+    public CakeServiceImpl getCakeService() {
         return new CakeServiceImpl();
     }
 
