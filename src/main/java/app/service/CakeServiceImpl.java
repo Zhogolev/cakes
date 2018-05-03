@@ -6,13 +6,11 @@ import app.repository.CakeFilter;
 import app.repository.CakeRepository;
 import app.view.CakeView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Class implements {@Link CakeService}
@@ -20,7 +18,6 @@ import java.util.concurrent.ExecutionException;
 public class CakeServiceImpl implements CakeService {
 
     @Autowired
-    @Qualifier("cakeRepository")
     CakeRepository repository;
 
     @Override
