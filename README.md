@@ -15,18 +15,21 @@ For run up in the Docker:
 
 ## Application 
 
-GET api/cakes ?cakeFilter  - getView 
-GET api/cakes/{id} - getItem 
-POST api/cakes cakeDto - saveItem 
-DELETE api/cakes/{id} - removeItem
+GET api/cakes ?cakeFilter  - getView </br>
+GET api/cakes/{id} - getItem </br>
+POST api/cakes - saveItem </br>
+DELETE api/cakes/{id} - removeItem </br>
 
   
-  cakeFilter = {
-      "text": "some text",
-      "limit": 2,
-      "page": 3,
-      "status" : [FRESH, SATLE]
-      } 
+  cakeFilter = {</br>
+      "text": "some text",</br>
+      "limit": 2,</br>
+      "page": 3,</br>
+      "status" : [FRESH, SATLE]</br>
+      } </br></br>
   
  
-  
+  post body {</br>
+    "name": "testy pirogok",</br>
+    "status" : FRESH</br>
+  }</br>
