@@ -11,7 +11,7 @@ public interface CakeRepository {
     /**
      * @param id is id of selected item
       *
-      *  get item form db by id
+      *  get item from db by id
      * */
     CompletableFuture<Cake> getItem(Long id);
     /**

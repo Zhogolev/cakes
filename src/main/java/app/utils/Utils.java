@@ -1,7 +1,10 @@
 package app.utils;
 
+import app.entity.Cake;
 import app.repository.CakeFilter;
 import com.google.gson.Gson;
+import com.sun.istack.NotNull;
+import org.hibernate.Session;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -24,5 +27,20 @@ public abstract class Utils{
             return exceptionObject;
         }
 
+    }
+    public static void execute(CompletableFuture<?> cf){
+        try {
+            cf.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void removeItem(@NotNull Session session, @NotNull Cake cake){
+        session.beginTransaction();
+        session.remove(cake);
+        session.flush();
+        session.getTransaction().commit();
     }
 }
