@@ -4,6 +4,7 @@ import app.dto.CakeDto;
 import app.entity.Cake;
 import app.entity.Status;
 import app.repository.CakeFilter;
+import app.view.CakeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Configuration
@@ -74,5 +76,6 @@ public class TestServiceConfig {
     public CakeFilter getCakeFilterForTotal(@Autowired @Qualifier("totalItemsName") String name){
         return new CakeFilter.Builder().setText(name).build();
     }
+
 
 }

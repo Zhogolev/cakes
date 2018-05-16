@@ -32,7 +32,7 @@ public class CakesController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     public CakeView getCakeViewPage(@RequestParam(name = "cakeFilter", defaultValue = "{}") String cakeFilter) {
-        CakeFilter filterFromJson = Utils.getObjectFromJson(new Gson(), cakeFilter);
+        CakeFilter filterFromJson = Utils.getObjectFromJson(new Gson(), cakeFilter, new CakeFilter.Builder().build());
         return Utils.getData(service.getView(filterFromJson), new CakeView());
 
     }

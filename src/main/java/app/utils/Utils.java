@@ -6,13 +6,14 @@ import com.google.gson.Gson;
 import com.sun.istack.NotNull;
 import org.hibernate.Session;
 
+import java.lang.reflect.Type;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public abstract class Utils{
 
-    public static CakeFilter getObjectFromJson(Gson gson,String jsonString){
-        return  gson.fromJson(jsonString, CakeFilter.class);
+    public static <T> T getObjectFromJson(Gson gson, String jsonString,T object){
+        return  gson.fromJson(jsonString, (Type) object.getClass());
     }
 
 

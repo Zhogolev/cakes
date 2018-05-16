@@ -25,7 +25,7 @@ public class CakeDto {
 
     @Override
     public String toString() {
-        return "{name : " + this.name + ",status: " + this.status + " }";
+        return "{name : " + this.name + ",status : " + this.status + " }";
     }
 
     public Long getId() {
@@ -50,5 +50,21 @@ public class CakeDto {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (!(obj instanceof CakeDto))
+            return false;
+
+        else {
+            CakeDto cake2 = (CakeDto) obj;
+
+            return this.status.equals(cake2.status) &&
+                    this.name.equals(cake2.name);
+
+        }
+
     }
 }
