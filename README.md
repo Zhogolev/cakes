@@ -1,5 +1,4 @@
 # cakes
-Test for dom.ru
 
 ## Run app.
 For run up in the Docker:
